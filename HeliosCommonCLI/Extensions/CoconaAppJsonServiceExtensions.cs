@@ -18,12 +18,12 @@ namespace HeliosCommonCLI
 
             app.AddCommand("escapeto", ([Argument] string filePath, [Argument] string fileTo, JsonFormatingService jsonService) =>
             {
-                Executor.TryExecute(() => jsonService.EscapeTo(filePath, fileTo));
+                Executor.TryExecute(async() => await jsonService.EscapeTo(filePath, fileTo));
             }).WithDescription("Escape json string in file and save result to another file");
 
             app.AddCommand("unescto", ([Argument] string filePath, [Argument] string fileTo, JsonFormatingService jsonService) =>
             {
-                Executor.TryExecute(() => JsonFormatingService.UnescapeTo(filePath, fileTo));
+                Executor.TryExecute(async () => await JsonFormatingService.UnescapeTo(filePath, fileTo));
             }).WithDescription("Unescape json string in file and save result to another file");
         }
     }

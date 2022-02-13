@@ -9,9 +9,10 @@ class Program
     {
         var builder = CoconaApp.CreateBuilder();
         builder.Services.AddTransient<JsonFormatingService>();
-
+        builder.Services.AddTransient<GeneratorService>();
         var app = builder.Build();
         CoconaAppJsonServiceExtensions.SetupJsonServiceCommands(app);
+        CoconaAppGeneratorServiceExtensions.SetupGeneratorServiceCommands(app);
         ShutdownEventHandling(app);
 
         app.Run();

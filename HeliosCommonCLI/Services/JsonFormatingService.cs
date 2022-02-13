@@ -14,7 +14,7 @@ namespace HeliosCommonCLI
             Console.WriteLine("Finished unescaping string");
         }
 
-        public static void UnescapeTo(string fileName, string toFile)
+        public static Task UnescapeTo(string fileName, string toFile)
         {
             string filePath = Guard.Against.NotFound(fileName, FileManager.GetFile(fileName), nameof(fileName));
             if (FileManager.IsExisting(filePath)) { throw new FileNotFoundException(); }
@@ -22,6 +22,7 @@ namespace HeliosCommonCLI
             var unescapedText = Regex.Unescape(text);
             WriteDataToFile(toFile, unescapedText);
             Console.WriteLine($"Finished unescaping string to {toFile}");
+            return Task.CompletedTask;
         }
 
         private static void WriteDataToFile(string toFile, string unescapedText)
@@ -39,7 +40,7 @@ namespace HeliosCommonCLI
             Console.WriteLine("Finished escaping string");
         }
 
-        public void EscapeTo(string fileName, string toFile)
+        public Task EscapeTo(string fileName, string toFile)
         {
             string filePath = FileManager.GetFilePath(fileName);
             string text = File.ReadAllText(filePath);
@@ -47,6 +48,7 @@ namespace HeliosCommonCLI
             FileManager.CreateFileWhenNotExisting(toFile);
             File.WriteAllText(toFile, unescapedText);
             Console.WriteLine($"Finished escaping string to file {toFile}");
+            return Task.CompletedTask;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Cocona;
+using HeliosCommonCLI.Constants;
 
 namespace HeliosCommonCLI
 {
@@ -6,22 +7,22 @@ namespace HeliosCommonCLI
     {
         public static void SetupJsonServiceCommands(CoconaApp app)
         {
-            app.AddCommand("unesc", ([Argument] string filePath, JsonFormatingService jsonService) =>
+            app.AddCommand(CommandConstants.UnescapeJson, ([Argument] string filePath, JsonFormatingService jsonService) =>
              {
                  Executor.TryExecute(() => JsonFormatingService.Unescape(filePath));
              }).WithDescription("Unescape json string in file");
 
-            app.AddCommand("escape", ([Argument] string filePath, JsonFormatingService jsonService) =>
+            app.AddCommand(CommandConstants.EscapeJson, ([Argument] string filePath, JsonFormatingService jsonService) =>
             {
                 Executor.TryExecute(() => jsonService.Escape(filePath));
             }).WithDescription("Escape json string in file");
 
-            app.AddCommand("escapeto", ([Argument] string filePath, [Argument] string fileTo, JsonFormatingService jsonService) =>
+            app.AddCommand(CommandConstants.EscapeJsonTo, ([Argument] string filePath, [Argument] string fileTo, JsonFormatingService jsonService) =>
             {
                 Executor.TryExecute(async() => await jsonService.EscapeTo(filePath, fileTo));
             }).WithDescription("Escape json string in file and save result to another file");
 
-            app.AddCommand("unescto", ([Argument] string filePath, [Argument] string fileTo, JsonFormatingService jsonService) =>
+            app.AddCommand(CommandConstants.UnescapeJsonTo, ([Argument] string filePath, [Argument] string fileTo, JsonFormatingService jsonService) =>
             {
                 Executor.TryExecute(async () => await JsonFormatingService.UnescapeTo(filePath, fileTo));
             }).WithDescription("Unescape json string in file and save result to another file");

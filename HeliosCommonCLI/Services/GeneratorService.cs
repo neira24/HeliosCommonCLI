@@ -16,7 +16,7 @@ public class GeneratorService
     }
 
     //is it faster to do one write or multiple writes
-    public async Task GenerateRandomGuidsToFileAsync(int numberOfGuids,string filePath)
+    public async Task GenerateRandomGuidsToFileAsync(int numberOfGuids, string filePath)
     {
         Console.WriteLine($"Started Guid generation and writing to file");
         using StreamWriter file = new(filePath);

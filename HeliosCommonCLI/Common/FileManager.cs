@@ -1,11 +1,4 @@
-﻿using Ardalis.GuardClauses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeliosCommonCLI
+﻿namespace HeliosCommonCLI
 {
     public static class FileManager
     {

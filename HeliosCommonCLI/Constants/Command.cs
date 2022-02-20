@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HeliosCommonCLI.Constants
 {
-    public static class CommandConstants
+    public static class Command
     {
         public const string GenerateIds = "genid";
 

@@ -13,5 +13,18 @@
                 Console.WriteLine($"Problem occured while trying to perform action:{ex}");
             }
         }
+
+        public static TResult TryExecuteWithResult<TResult>(Func<TResult> action)
+        {
+            try
+            {
+                return action();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Problem occured while trying to perform action:{ex}");
+                throw ex;
+            }
+        }
     }
 }

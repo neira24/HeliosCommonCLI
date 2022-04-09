@@ -7,6 +7,8 @@ namespace HeliosCommonCLI
     {
         public static void Unescape(string fileName)
         {
+            Guard.Against.NullOrWhiteSpace(fileName);
+
             string filePath = Guard.Against.NotFound(fileName, FileManager.GetFile(fileName), nameof(fileName));
             string text = File.ReadAllText(filePath);
             var unescapedText = Regex.Unescape(text);
@@ -16,6 +18,9 @@ namespace HeliosCommonCLI
 
         public static Task UnescapeTo(string fileName, string toFile)
         {
+            Guard.Against.NullOrWhiteSpace(fileName);
+            Guard.Against.NullOrWhiteSpace(toFile);
+
             string filePath = Guard.Against.NotFound(fileName, FileManager.GetFile(fileName), nameof(fileName));
             if (FileManager.IsExisting(filePath)) { throw new FileNotFoundException(); }
             string text = File.ReadAllText(filePath);

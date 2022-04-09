@@ -7,10 +7,12 @@
     <Nullable>enable</Nullable>
 	<PackAsTool>true</PackAsTool>
 	<ToolCommandName>helios</ToolCommandName>
+	<LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.GuardClauses" Version="4.0.0" />
+    <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
     <PackageReference Include="Cocona" Version="2.0.3" />
+    <PackageReference Include="Cocona.Core" Version="2.0.3" />
   </ItemGroup>
 </Project>

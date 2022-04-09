@@ -1,20 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Cocona;
-using HeliosCommonCLI;
-using HeliosCommonCLI.Extensions;
-using Microsoft.Extensions.DependencyInjection;
 
 class Program
 {
     static void Main(string[] args)
     {
-            var builder = CoconaApp.CreateBuilder();
-            builder.Services.AddTransient<JsonFormatingService>();
-            builder.Services.AddTransient<GeneratorService>();
-            var app = builder.Build();
-            CoconaAppJsonServiceExtensions.SetupJsonServiceCommands(app);
-            CoconaAppGeneratorServiceExtensions.SetupGeneratorServiceCommands(app);
-            CoconaAppMainEventsExtensions.ShutdownEventHandling(app);
-            app.Run();
+        CoconaApp app = AppBuild();
+        RegisterCommandsExtensions.Register(app);
+        app.Run();
+    }
+
+    private static CoconaApp AppBuild()
+    {
+        var builder = CoconaApp.CreateBuilder();
+        CoconaAppServicesExtensions.AddServices(builder);
+        var app = builder.Build();
+        return app;
     }
 }

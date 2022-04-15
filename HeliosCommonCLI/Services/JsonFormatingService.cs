@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace HeliosCommonCLI
 {
-    public class JsonFormatingService
+    public class JsonFormatingService : IJsonFormatingService
     {
         public static void Unescape(string fileName)
         {

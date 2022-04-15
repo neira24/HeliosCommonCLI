@@ -8,6 +8,7 @@ namespace HeliosCommonCLI.Services
         public void GenerateRandomGuids(int numberOfGuids)
         {
             Guard.Against.NegativeOrZero(numberOfGuids);
+            Guard.Against.OutOfRange<int>(numberOfGuids, nameof(numberOfGuids), int.MinValue, int.MaxValue);
 
             Console.WriteLine($"Started Guid generation");
             for (int x = 0; x <= numberOfGuids - 1; x++)
@@ -21,6 +22,7 @@ namespace HeliosCommonCLI.Services
         public async Task GenerateRandomGuidsToFileAsync(int numberOfGuids, string filePath)
         {
             Guard.Against.NegativeOrZero(numberOfGuids);
+            Guard.Against.OutOfRange<int>(numberOfGuids, nameof(numberOfGuids), 1, int.MaxValue);
             Guard.Against.NullOrWhiteSpace(filePath);
 
             Console.WriteLine($"Started Guid generation and writing to file");

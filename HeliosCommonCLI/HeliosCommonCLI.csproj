@@ -8,6 +8,8 @@
 	<PackAsTool>true</PackAsTool>
 	<ToolCommandName>helios</ToolCommandName>
 	<LangVersion>preview</LangVersion>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
 
   <ItemGroup>
